@@ -16,6 +16,7 @@ public interface UUserService {
 
 	UUser insert(UUser record);
 
+	// 选择性插入，插入带有部分属性的对象
     UUser insertSelective(UUser record);
 
     UUser selectByPrimaryKey(Long id);

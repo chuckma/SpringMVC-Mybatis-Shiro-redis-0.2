@@ -64,6 +64,14 @@ public class UserManager {
 		return resultData;
 		
 	}
-	
-	
+
+    /**
+     * 测试 main 函数
+     * @param args
+     */
+	public static void main(String[] args) {
+        String md5pwd = md5Pswd("test1@qq.com", "111111");
+        System.out.println(md5pwd);
+
+    }
 }

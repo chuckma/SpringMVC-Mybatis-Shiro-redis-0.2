@@ -55,6 +55,12 @@ public class SampleRealm extends AuthorizingRealm {
 	public SampleRealm() {
 		super();
 	}
+
+	@Override
+	protected AuthorizationInfo getAuthorizationInfo(PrincipalCollection principals) {
+		return super.getAuthorizationInfo(principals);
+	}
+
 	/**
 	 *  认证信息，主要针对用户登录， 
 	 */
@@ -93,8 +99,14 @@ public class SampleRealm extends AuthorizingRealm {
 		Set<String> permissions = permissionService.findPermissionByUserId(userId);
 		info.setStringPermissions(permissions);
         return info;  
-    }  
-    /**
+    }
+
+	@Override
+	public boolean isPermitted(PrincipalCollection principals, String permission) {
+		return super.isPermitted(principals, permission);
+	}
+
+	/**
      * 清空当前用户权限信息
      */
 	public  void clearCachedAuthorizationInfo() {
